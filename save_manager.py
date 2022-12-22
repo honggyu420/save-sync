@@ -5,7 +5,7 @@ import datetime
 
 GAME_CONFIG = {
     "high-on-life": {
-        "deck_directory": "/home/deck/.steam/steam/steamapps/compatdata/2952202951/pfx/drive_c/users/steamuser/AppData/Local/Oregon/Saved/SavedGames",
+        "deck_directory": "/home/deck/.steam/steam/steamapps/compatdata/2952202951/pfx/drive_c/users/steamuser/AppData/Local/Oregon/Saved/SaveGames/",
         "pc_directory": "/mnt/c/Users/hongg/AppData/Local/Oregon/Saved/SavedGames"
     },
 }
