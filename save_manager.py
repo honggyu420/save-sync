@@ -52,8 +52,9 @@ def downloadSaves(game, save_location):
     os.system("git pull")
 
     # get the latest zip file from game dir
-    latest_zip = os.path.join(game, sorted(os.listdir(game))[-1], 'backup.zip')
-
+    repo_dir = os.path.join('saves', game)
+    latest_zip = os.path.join(repo_dir, sorted(os.listdir(repo_dir))[-1], 'backup.zip')
+    print(latest_zip)
     # unzip the file and replace the files in the directory
     print(f"getting latest save file: {latest_zip}")
     with zipfile.ZipFile(latest_zip, 'r') as zip_ref:
