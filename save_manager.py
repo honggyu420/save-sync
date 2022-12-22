@@ -13,7 +13,9 @@ GAME_CONFIG = {
 def zipdir(path, ziph):
     # ziph is zipfile handle
     # do not retain the full path
+    print(path)
     for root, _, files in os.walk(path):
+        print(files)
         for file in files:
             ziph.write(os.path.join(root, file), arcname=file)
 
