@@ -5,8 +5,7 @@ import datetime
 
 GAME_CONFIG = {
     "high-on-life": {
-        # "deck_directory": "/home/deck/.steam/steam/steamapps/compatdata/2952202951/pfx/drive_c/users/steamuser/AppData/Local/Oregon/Saved/SavedGames",
-        "deck_directory": "/Users/hong-gyulee/Projects/testdata",
+        "deck_directory": "/home/deck/.steam/steam/steamapps/compatdata/2952202951/pfx/drive_c/users/steamuser/AppData/Local/Oregon/Saved/SavedGames",
         "pc_directory": "C:\\Users\\hongg\\AppData\\Local\\Oregon\\Saved\\SavedGames"
     },
 }
@@ -14,7 +13,7 @@ GAME_CONFIG = {
 def zipdir(path, ziph):
     # ziph is zipfile handle
     # do not retain the full path
-    for root, dirs, files in os.walk(path):
+    for root, _, files in os.walk(path):
         for file in files:
             ziph.write(os.path.join(root, file), arcname=file)
 
@@ -43,7 +42,7 @@ def uploadSaves(game, save_location, system):
     now = datetime.datetime.now()
     
     # commit the changes to git and push
-    os.system("git add .")
+    os.system("git add saves/.")
     os.system(f"git commit -m 'backup from deck at {now_string}'")
     os.system("git push")
 
