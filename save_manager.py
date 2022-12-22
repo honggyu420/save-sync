@@ -6,17 +6,17 @@ import datetime
 GAME_CONFIG = {
     "high-on-life": {
         # "deck_directory": "/home/deck/.steam/steam/steamapps/compatdata/2952202951/pfx/drive_c/users/steamuser/AppData/Local/Oregon/Saved/SavedGames",
-        "deck_directory": "~/Projects/testdata",
+        "deck_directory": "/Users/hong-gyulee/Projects/testdata",
         "pc_directory": "C:\\Users\\hongg\\AppData\\Local\\Oregon\\Saved\\SavedGames"
     },
 }
 
 def zipdir(path, ziph):
     # ziph is zipfile handle
-    print(path)
     for root, _, files in os.walk(path):
         for file in files:
             ziph.write(os.path.join(root, file))
+
 
 def uploadSaves(game, save_location, system):
     repo_dir = os.path.join('saves', game)
@@ -54,10 +54,10 @@ def downloadSaves(game, save_location):
     # get the latest zip file from game dir
     repo_dir = os.path.join('saves', game)
     latest_zip = os.path.join(repo_dir, sorted(os.listdir(repo_dir))[-1], 'backup.zip')
-    print(latest_zip)
-    
-    # unzip the file and replace the files in the directory
     print(f"getting latest save file: {latest_zip}")
+
+    # unzip the file and replace the files in the directory
+    print(f"extracting to {save_location}")
     with zipfile.ZipFile(latest_zip, 'r') as zip_ref:
         zip_ref.extractall(save_location)
 
